@@ -2,9 +2,19 @@
 
 {% block content %}
 
-    <ul>
-        <li>Entered Number: {{ fibonacci.index }}</li>
-        <li>Fibonacci Sequence Number: {{ fibonacci.result }}</li>
-        <li>Elapsed Time: {{ fibonacci.elapsed }}</li>
-    </ul>
+    <div class="container">
+            <div class="row" >
+                <div class="col-xs-12">Entered Number: <pre>{{ fibonacci.index }}</pre> </div>
+            </div>
+</div>
+<div class="container">
+            <div class="row" >
+                <div class="col-xs-12">Fibonacci Sequence Number: <pre>{{ fibonacci.result }}</pre></div>
+            </div>
+</div>
+<div class="container">
+            <div class="row" >
+                <div class="col-xs-6" >Elapsed Time: <pre>{{ fibonacci.elapsed }}</pre></div>
+            </div>
+</div>
 {% endblock %}

@@ -15,7 +15,7 @@ def save_fibonacci(request):
             index = form.cleaned_data['index']
             response_data = {}
             response_data["index"] = int(index)
-            response_data["result"] = int(F(int(index)))
+            response_data["result"] = fibonacci(int(index))
             end_time = datetime.datetime.now().time().strftime('%H:%M:%S')
             response_data["elapsed"] = (datetime.datetime.strptime(end_time,'%H:%M:%S') - datetime.datetime.strptime(start_time,'%H:%M:%S'))
             return render(request, 'fibonacci.html', {'fibonacci': response_data})
@@ -24,5 +24,8 @@ def save_fibonacci(request):
 
     return render(request, 'index.html', {'form': form})
 
-def F(n):
-    return ((1+sqrt(5))**n-(1-sqrt(5))**n)/(2**n*sqrt(5))
+def fibonacci(n):
+    f = [0,1,1]
+    for i in xrange(3,n):
+        f.append(f[i-1] + f[i-2])
+    return f[-1]

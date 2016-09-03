@@ -2,11 +2,19 @@
 
 {% block content %}
 
-    <form action="/" method="POST">
-        {% csrf_token %}
+    <div class="jumbotron jumbotron-fluid">
+    <div class="container container-fluid">
+        <form action="/" method="POST">
+        <div class="form-group-lg">
+            <label>Enter the  </label>
+            {% csrf_token %}
         {{ form }}
-        <input type="submit" value="Save"/>
+
+        <input type="submit" class="btn btn-success" value="Save"/>
+        </div>
     </form>
+    </div>
+    </div>
 
 
 {% endblock %}
