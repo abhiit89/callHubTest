@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import SubmitFibonacci
 
+global f; f = [0,1,1]
+
 def index(request):
     return HttpResponse("Hello, world. You're at the Fibonacci Page.")
 
@@ -25,7 +27,11 @@ def save_fibonacci(request):
     return render(request, 'index.html', {'form': form})
 
 def fibonacci(n):
-    f = [0,1,1]
-    for i in xrange(3,n):
-        f.append(f[i-1] + f[i-2])
-    return f[-1]
+    #import pdb;pdb.set_trace()
+    try:
+        if f[n]:
+            return f[n - 1]
+    except:
+        for i in xrange(3, n):
+            f.append(f[i - 1] + f[i - 2])
+        return f[-1]
